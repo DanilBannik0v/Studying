@@ -1,9 +1,5 @@
 import classes.*;
 
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Main {
     public static void main(String[] args) {
         TicTacToe board = new TicTacToe();
@@ -14,7 +10,6 @@ public class Main {
         board.makeMove(1,1,"O");
         board.makeMove(1,1,"X"); //filled
         board.makeMove(0,2,"X");
-        board.getField();
         board.getField();
     }
 }

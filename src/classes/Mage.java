@@ -1,7 +1,5 @@
 package classes;
 
-import java.lang.reflect.Type;
-
 public class Mage {
     private String name, type;
     private int level, damage;
@@ -12,19 +10,21 @@ public class Mage {
         this.damage = damage;
         this.type = type;
     }
+    public void changeType(String type) {
+        this.type = type;
+    }
 
     public String getInfo() {
-        String result = this.name + " ," + this.level + " ," + this.damage + " ," + this.type;
-        return result;
+        return this.name + " ," + this.level + " ," + this.damage + " ," + this.type;
     }
 
     public String fight(Mage mage) {
-        if (this.type == "Fire" & mage.type == "Ice") return this.name + " won!";
-        else if (this.type.equals("Fire") & mage.type == "Earth") return mage.name + " won!";
-        else if (this.type.equals("Ice") & mage.type == "Earth") return this.name + " won!";
-        else if (this.type.equals("Ice") & mage.type == "Fire") return mage.name + " won!";
-        else if (this.type.equals("Earth") & mage.type == "Fire") return this.name + " won!";
-        else if (this.type.equals("Earth") & mage.type == "Ice") return mage.name + " won!";
+        if (this.type.equals("Fire") & mage.type.equals("Ice")) return this.name + " won!";
+        else if (this.type.equals("Fire") & mage.type.equals("Earth")) return mage.name + " won!";
+        else if (this.type.equals("Ice") & mage.type.equals("Earth")) return this.name + " won!";
+        else if (this.type.equals("Ice") & mage.type.equals("Fire")) return mage.name + " won!";
+        else if (this.type.equals("Earth") & mage.type.equals("Fire")) return this.name + " won!";
+        else if (this.type.equals("Earth") & mage.type.equals("Ice")) return mage.name + " won!";
         else {
             if (this.level > mage.level) return this.name;
             else if (this.level < mage.level) return mage.name;

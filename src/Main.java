@@ -14,7 +14,7 @@ public class Main {
         board.makeMove(1,1,"O");
         board.makeMove(1,1,"X"); //filled
         board.makeMove(0,2,"X");
-
+        board.getField();
         board.getField();
     }
 }

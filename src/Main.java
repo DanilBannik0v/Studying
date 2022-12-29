@@ -11,5 +11,9 @@ public class Main {
         board.makeMove(1,1,"X"); //filled
         board.makeMove(0,2,"X");
         board.getField();
+        System.out.println("1");
+        System.out.println("23457");
+        System.out.println("123412341234123412341324123412");
+
     }
 }

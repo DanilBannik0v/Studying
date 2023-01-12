@@ -17,8 +17,10 @@ public class Rook extends ChessPiece {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)){
             if (line==toLine && column==toColumn) return false;
 
+            boolean isSquareSuitable = (!chessBoard[toLine][toColumn].getColor().equals(color) || chessBoard[toLine][toColumn] == null);
+
             check = false;
-            return toLine != line && column == toColumn || line == toLine;
+            return ((toLine != line && column == toColumn) || (line == toLine)) && isSquareSuitable;
         } else return false;
     }
 

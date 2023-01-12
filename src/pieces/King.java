@@ -17,8 +17,10 @@ public class King extends ChessPiece {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)){
             if (line==toLine && column==toColumn) return false;
 
+            boolean isSquareSuitable = (!chessBoard[toLine][toColumn].getColor().equals(color) || chessBoard[toLine][toColumn] == null);
+
             check = false;
-            return Math.abs(toLine - line) < 2 && Math.abs(toColumn - column) < 2;
+            return Math.abs(toLine - line) < 2 && Math.abs(toColumn - column) < 2 && isSquareSuitable;
         } else return false;
     }
 
@@ -29,10 +31,9 @@ public class King extends ChessPiece {
 
     public boolean isUnderAttack(ChessPiece[][] board, int line, int column) {
         boolean flag = false;
-
-        if (board[line][column].getSymbol().equals("K") && board[line][column].getColor().equals("White")) {
+        if (board[line][column].getSymbol().equals("K")) {
             for (int i = 0, j = 0; i < 7 && j < 7; i++, j++) {
-                if (board[i][j].getColor().equals("Black") && board[i][j].canMoveToPosition(board,i,j,line,column)) {
+                if (!board[i][j].getColor().equals(color) && board[i][j].canMoveToPosition(board,i,j,line,column)) {
                     flag = true;
                 }
             }

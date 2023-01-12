@@ -17,8 +17,12 @@ public class Horse extends ChessPiece {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)){
             if (line==toLine && column==toColumn) return false;
 
-            return (Math.abs(toLine - line) == 1 && Math.abs(toColumn - column) == 2) ||
-                   (Math.abs(toLine - line) == 2 && Math.abs(toColumn - column) == 1);
+            boolean isHorseMovement = (Math.abs(toLine - line) == 1 && Math.abs(toColumn - column) == 2) ||
+                                      (Math.abs(toLine - line) == 2 && Math.abs(toColumn - column) == 1);
+            boolean isSquareSuitable = (!chessBoard[toLine][toColumn].getColor().equals(color) ||
+                                         chessBoard[toLine][toColumn] == null);
+
+            return isHorseMovement && isSquareSuitable;
         } else return false;
     }
 

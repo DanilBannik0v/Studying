@@ -17,7 +17,9 @@ public class Bishop extends ChessPiece {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)){
             if (line==toLine && column==toColumn) return false;
 
-            return (Math.abs(toLine - line) == Math.abs(toColumn - column));
+            boolean isSquareSuitable = (!chessBoard[toLine][toColumn].getColor().equals(color) || chessBoard[toLine][toColumn] == null);
+
+            return (Math.abs(toLine - line) == Math.abs(toColumn - column) && isSquareSuitable);
         } else return false;
     }
 

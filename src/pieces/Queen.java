@@ -17,9 +17,12 @@ public class Queen extends ChessPiece {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)){
             if (line==toLine && column==toColumn) return false;
 
-            return (toLine != line && column == toColumn) ||
+            boolean isSquareSuitable = (!chessBoard[toLine][toColumn].getColor().equals(color) || chessBoard[toLine][toColumn] == null);
+
+            return ((toLine != line && column == toColumn) ||
                    (Math.abs(toLine - line) == Math.abs(toColumn - column)) ||
-                   (line == toLine);
+                   (line == toLine)) &&
+                    isSquareSuitable;
         } else return false;
     }
 
